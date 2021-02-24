@@ -6,10 +6,10 @@ import "date-fns";
 import Grid from "@material-ui/core/Grid";
 
 function Body() {
+  // ***** Page navigation *****
   const [whatToShow, setWhatToShow] = useState("Exercises");
-  const [selectedStartTime, setSelectedStartTime] = useState("");
-  const [selectedInterval, setSelectedInterval] = useState(15);
-  const [selectedRounds, setSelectedRounds] = useState(2);
+
+  // ***** Exercise page *****
   const [exercises, setExercises] = useState([
     "Swing",
     "Snatch",
@@ -17,8 +17,20 @@ function Body() {
     "Getup",
   ]);
   const [newExercise, setNewExercise] = useState("");
-  const [timeOfSets, setTimeOfSets] = useState([]);
 
+  // ***** Time page *****
+  const [selectedStartTime, setSelectedStartTime] = useState("");
+  const [selectedInterval, setSelectedInterval] = useState(15);
+  const [selectedRounds, setSelectedRounds] = useState(2);
+
+  // ***** ExerciseList page *****
+  const [allSets, setAllSets] = useState([]);
+  const [remainingSets, setRemainingSets] = useState([]);
+  const [timeTillNextSet, setTimeTillNextSet] = useState(0);
+  const [numOfSets, setNumOfSets] = useState(0);
+  const [currentSetNum, setCurrentSetNum] = useState(0);
+
+  // ***** Handle state changes *****
   function handleDateChange(event) {
     setSelectedStartTime(event.target.value);
   }
@@ -34,16 +46,85 @@ function Body() {
       setSelectedRounds(event.target.value);
   }
 
+  function handleChangeNewExercise(event) {
+    setNewExercise(event.target.value);
+  }
+
+  function handleAddNewExercise() {
+    if (newExercise !== "") {
+      setExercises(() => [...exercises, newExercise]);
+      setNewExercise("");
+    }
+  }
+
+  function handleRemoveExercise(exerciseToDelete, id) {
+    setExercises(exercises.filter((exercise) => exercise !== exerciseToDelete));
+  }
+
+  function showNextPage(arg) {
+    if (arg === "back") setWhatToShow("Exercises");
+    else if (whatToShow === "Exercises") {
+      const now = new Date();
+      const start = {
+        hours: now.getHours().toLocaleString("en-US", {
+          minimumIntegerDigits: 2,
+          useGrouping: false,
+        }),
+        minutes: now.getMinutes().toLocaleString("en-US", {
+          minimumIntegerDigits: 2,
+          useGrouping: false,
+        }),
+      };
+      setSelectedStartTime(start.hours + ":" + start.minutes);
+      setWhatToShow("Time");
+    } else if (whatToShow === "Time") setWhatToShow("ExerciseList");
+  }
+
+  async function onStart() {
+    const delay = selectedInterval * 60000;
+    const startClickTime = new Date();
+    const [startDelay, shouldStart, relay] = getStartDelay(startClickTime);
+    const rounds = exercises.length * selectedRounds - 1;
+    let counter = 0;
+    const allSetsTemp = getTimeOfSets(rounds + 1);
+    let localTimeTillNextSet = relay;
+
+    if (!shouldStart) {
+      alert("Select valid starting time!");
+    } else {
+      console.log("click: " + startClickTime);
+      console.log("start: " + selectedStartTime);
+      console.log("startdelay: " + startDelay);
+      showNextPage();
+      setAllSets(allSetsTemp);
+      setRemainingSets(allSetsTemp);
+      setNumOfSets(exercises.length * selectedRounds);
+      setCurrentSetNum(currentSetNum + 1);
+      // setTimeTillNextSet(localTimeTillNextSet);
+      // await countDown();
+
+      await setTimeout(() => showAlert(delay, rounds, counter), startDelay);
+    }
+  }
+
+  // ***** Logic *****
   async function showAlert(delay, rounds, counter) {
     console.log(new Date());
     await setTimeout(() => {
-      if (rounds > 0)
+      if (rounds > 0) {
+        setCurrentSetNum(currentSetNum + 1);
         showAlert(
           delay,
           rounds - 1,
           counter >= exercises.length - 1 ? 0 : counter + 1
         );
+      }
     }, delay);
+    // setTimeTillNextSet(delay);
+    // await countDownTillStart(delay);
+    console.log("all:");
+    console.log(allSets);
+    setRemainingSets(remainingSets.slice(1));
     console.log(counter);
     alert(exercises[counter]);
   }
@@ -73,40 +154,48 @@ function Body() {
       (start.hours - now.hours === 0 && start.minutes - now.minutes <= 0)
         ? false
         : true;
-    return [startDelay, shouldStart];
+    const relay =
+      selectedStartTime == null
+        ? null
+        : {
+            hours: start.hours - now.hours,
+            minutes: start.minutes - now.minutes - 1,
+            seconds: 60 - now.seconds,
+          };
+    return [startDelay, shouldStart, relay];
   }
 
-  function onStart() {
-    const delay = selectedInterval * 60000;
-    const startClickTime = new Date();
-    const [startDelay, shouldStart] = getStartDelay(startClickTime);
-    const rounds = exercises.length * selectedRounds - 1;
-    let counter = 0;
+  // async function countDown(delay) {
+  //   const temp = new Date();
+  //   const now = {
+  //     hours: temp.getHours(),
+  //     minutes: temp.getMinutes(),
+  //     seconds: temp.getSeconds(),
+  //   };
+  //   let localTimeTillNextSet = delay;
+  //   await setTimeout(() => {
+  //     if (localTimeTillNextSet > 0) {
+  //       localTimeTillNextSet = localTimeTillNextSet - 1000;
+  //       setTimeTillNextSet(localTimeTillNextSet);
+  //       countDownTillStart(localTimeTillNextSet);
+  //     }
+  //   }, 1000);
+  //   // setTimeTillNextSet(delay);
+  // }
 
-    if (!shouldStart) {
-      alert("Select valid starting time!");
-    } else {
-      console.log("click: " + startClickTime);
-      console.log("start: " + selectedStartTime);
-      console.log("startdelay: " + startDelay);
-      showNextPage();
-      setTimeOfSets(getTimeOfSets(rounds + 1));
-      setTimeout(() => showAlert(delay, rounds, counter), startDelay);
-    }
-  }
-
-  function getTimeOfSets(rounds) {
+  function getTimeOfSets(howManySets) {
     let sets = [
       [
         parseInt(selectedStartTime.substring(0, 2)),
         parseInt(selectedStartTime.substring(3, 5)),
+        exercises[0],
       ],
     ];
-    for (let i = 1; i < rounds; i++) {
+    for (let i = 1; i < howManySets; i++) {
       const prevSet = [sets[i - 1][0], sets[i - 1][1]];
       let nextSet = [];
       //   xx:45 or later
-      if (prevSet[1] > 44) {
+      if (prevSet[1] > 59 - parseInt(selectedInterval)) {
         //   (23:45 or later) or not xx != 23
         nextSet = [
           prevSet[0] === 23 ? 0 : prevSet[0] + 1,
@@ -115,43 +204,12 @@ function Body() {
       } else {
         nextSet = [prevSet[0], prevSet[1] + parseInt(selectedInterval)];
       }
+      i < exercises.length
+        ? nextSet.push(exercises[i])
+        : nextSet.push(exercises[i % exercises.length]);
       sets.push(nextSet);
     }
     return sets;
-  }
-
-  function handleChangeNewExercise(event) {
-    setNewExercise(event.target.value);
-  }
-
-  function onAddNewExercise() {
-    if (newExercise !== "") {
-      setExercises(() => [...exercises, newExercise]);
-      setNewExercise("");
-    }
-  }
-
-  function onRemoveExercise(exerciseToDelete, id) {
-    setExercises(exercises.filter((exercise) => exercise !== exerciseToDelete));
-  }
-
-  function showNextPage(arg) {
-    if (arg === "back") setWhatToShow("Exercises");
-    else if (whatToShow === "Exercises") {
-      const now = new Date();
-      const start = {
-        hours: now.getHours().toLocaleString("en-US", {
-          minimumIntegerDigits: 2,
-          useGrouping: false,
-        }),
-        minutes: now.getMinutes().toLocaleString("en-US", {
-          minimumIntegerDigits: 2,
-          useGrouping: false,
-        }),
-      };
-      setSelectedStartTime(start.hours + ":" + start.minutes);
-      setWhatToShow("Time");
-    } else if (whatToShow === "Time") setWhatToShow("ExerciseList");
   }
 
   return (
@@ -161,9 +219,9 @@ function Body() {
           <Exercises
             newExercise={newExercise}
             handleChangeNewExercise={handleChangeNewExercise}
-            onAddNewExercise={onAddNewExercise}
+            handleAddNewExercise={handleAddNewExercise}
             exercises={exercises}
-            onRemoveExercise={onRemoveExercise}
+            handleRemoveExercise={handleRemoveExercise}
             handleShowNextPage={showNextPage}
           />
         ) : whatToShow === "Time" ? (
@@ -178,7 +236,12 @@ function Body() {
             onStart={onStart}
           />
         ) : (
-          <ExerciseList timeOfSets={timeOfSets} exercises={exercises} />
+          <ExerciseList
+            allSets={allSets}
+            timeTillNextSet={timeTillNextSet}
+            numOfSets={numOfSets}
+            currentSetNum={currentSetNum}
+          />
         )}
       </Grid>
     </div>

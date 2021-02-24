@@ -21,7 +21,7 @@ function List(props) {
             id={index.toString()}
             index={index}
             exercise={exercise}
-            onRemoveExercise={props.onRemoveExercise}
+            handleRemoveExercise={props.handleRemoveExercise}
           />
         );
       })}
@@ -29,7 +29,7 @@ function List(props) {
         key={props.exercises.length}
         newExercise={props.newExercise}
         handleChangeNewExercise={props.handleChangeNewExercise}
-        onAddNewExercise={props.onAddNewExercise}
+        handleAddNewExercise={props.handleAddNewExercise}
       />
     </Grid>
   );

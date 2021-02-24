@@ -24,7 +24,7 @@ function Exercise(props) {
               variant="contained"
               color={"default"}
               onClick={() =>
-                props.onRemoveExercise(props.exercise, props.index)
+                props.handleRemoveExercise(props.exercise, props.index)
               }
               position="right"
             >

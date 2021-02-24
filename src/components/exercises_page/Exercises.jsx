@@ -13,10 +13,10 @@ function Exercises(props) {
         <Title title={title} />
         <List
           exercises={props.exercises}
-          onRemoveExercise={props.onRemoveExercise}
           newExercise={props.newExercise}
           handleChangeNewExercise={props.handleChangeNewExercise}
-          onAddNewExercise={props.onAddNewExercise}
+          handleAddNewExercise={props.handleAddNewExercise}
+          handleRemoveExercise={props.handleRemoveExercise}
         />
         <CustomNavButton name="Next" onClick={props.handleShowNextPage}  width="full_width"/>
       </Grid>

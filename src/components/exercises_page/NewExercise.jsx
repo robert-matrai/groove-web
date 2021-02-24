@@ -19,7 +19,7 @@ function NewExercise(props) {
             <IconButton
               variant="contained"
               color={"primary"}
-              onClick={props.onAddNewExercise}
+              onClick={props.handleAddNewExercise}
               position="right"
             >
               <AddIcon />
