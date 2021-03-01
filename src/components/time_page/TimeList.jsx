@@ -19,7 +19,7 @@ function List(props) {
           label="Start time"
           type="time"
           value={props.selectedStartTime}
-          onChange={props.handleDateChange}
+          onChange={props.handleSelectedStartTimeChange}
           className="MuiFormControl-marginNormal"
           inputProps={{
             step: 300, // 5 min

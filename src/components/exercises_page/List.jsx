@@ -27,8 +27,6 @@ function List(props) {
       })}
       <NewExercise
         key={props.exercises.length}
-        newExercise={props.newExercise}
-        handleChangeNewExercise={props.handleChangeNewExercise}
         handleAddNewExercise={props.handleAddNewExercise}
       />
     </Grid>

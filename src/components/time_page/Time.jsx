@@ -15,7 +15,7 @@ function Time(props) {
 
         <TimeList
           selectedStartTime={props.selectedStartTime}
-          handleDateChange={props.handleDateChange}
+          handleSelectedStartTimeChange={props.handleSelectedStartTimeChange}
           selectedInterval={props.selectedInterval}
           handleIntervalChange={props.handleIntervalChange}
           selectedRounds={props.selectedRounds}

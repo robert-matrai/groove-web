@@ -13,8 +13,6 @@ function Exercises(props) {
         <Title title={title} />
         <List
           exercises={props.exercises}
-          newExercise={props.newExercise}
-          handleChangeNewExercise={props.handleChangeNewExercise}
           handleAddNewExercise={props.handleAddNewExercise}
           handleRemoveExercise={props.handleRemoveExercise}
         />

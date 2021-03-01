@@ -9,7 +9,7 @@ function CustomButton(props) {
         variant="contained"
         color={"primary"}
         onClick={props.onClick}
-        className="full_width"s
+        className="full_width"
         size="large"
       >
         {props.name}
