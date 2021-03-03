@@ -5,8 +5,8 @@ import Detail from "./Detail";
 function Details(props) {
   
   return (
-    <Grid item>
-      <Grid container direction="row">
+    <Grid item id={"details"} className={"full_width"}>
+      <Grid container direction="row" className={"full_height"} justify={"space-between"} alignItems={"center"}>
         <Detail
           title={"Time"}
           content={

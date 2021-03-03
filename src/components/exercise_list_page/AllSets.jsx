@@ -4,7 +4,7 @@ import Set from "./allSets/Set";
 
 function AllSets(props) {
   return (
-    <Grid item>
+    <Grid item className={"allSets"} >
       <Grid container direction="column">
         <div className={"scroll"}>
           {props.allSets.map((set, index) => {

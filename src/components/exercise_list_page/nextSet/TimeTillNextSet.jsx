@@ -26,10 +26,10 @@ function TimeTillNextSet(props) {
           currentSet.hours - now.hours - 1,
     minutes:
       // if less than interval until next hour
-      60 - now.minutes < props.selectedInterval
+      60 - now.minutes < props.selectedInterval && currentSet.hours > now.hours
         ? currentSet.minutes + (59 - now.minutes)
         : // else if set.minutes < now.minutes (implying it's the next hour)
-        currentSet.minutes < now.minutes
+        currentSet.minutes <= now.minutes
         ? 60 - now.minutes - 1 + currentSet.minutes
         : currentSet.minutes - now.minutes - 1,
     seconds: 59 - now.seconds,
@@ -39,7 +39,7 @@ function TimeTillNextSet(props) {
 
   setTimeout(() => {
     // if 00:00
-    if (countDown.minutes === 0 && countDown.seconds === 0 && shouldAlert) {
+    if (countDown.hours === 0 && countDown.minutes === 0 && countDown.seconds === 0 && shouldAlert) {
       // prevent re-alert
       shouldAlert = false;
       //alert
@@ -64,9 +64,9 @@ function TimeTillNextSet(props) {
   }
 
   return (
-    <Grid item>
-      <Grid container justify="center" alignItems="center">
-        <Typography variant="h3">
+    <Grid item id={"time_till_next_set"} className={"full_width"}>
+      <Grid container justify="center" alignItems="center" className={"full_height"} >
+        <Typography variant="h1">
           {countDown.hours === 0
             ? null
             : countDown.hours.toLocaleString("en-US", {

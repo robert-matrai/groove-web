@@ -21,8 +21,8 @@ function NextSet(props) {
     }
   }
   return (
-    <Grid item>
-      <Grid container direction="column">
+    <Grid item className={"nextSet full_height"}>
+      <Grid container direction="column" justify={"space-between"} className={"full_height"} >
         <TimeTillNextSet
           allSets={props.allSets}
           currentSetNum={currentSetNum}
