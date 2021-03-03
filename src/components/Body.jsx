@@ -53,14 +53,16 @@ function Body() {
   }
 
   function handleIntervalChange(event) {
-    const newInterval = event.target.value;
+    const newInterval =
+      event.target.value === "" ? "" : parseInt(event.target.value);
     if ((newInterval >= 0 || newInterval === null) && newInterval < 31)
       setSelectedInterval(newInterval);
   }
 
   function handleRoundsChange(event) {
-    if (event.target.value >= 0 || event.target.value === null)
-      setSelectedRounds(event.target.value);
+    const newRounds =
+      event.target.value === "" ? "" : parseInt(event.target.value);
+    if (newRounds >= 0 || newRounds === null) setSelectedRounds(newRounds);
   }
 
   // ***** EXERCISELIST PAGE *****
@@ -78,14 +80,14 @@ function Body() {
       const prevSet = [sets[i - 1][0], sets[i - 1][1]];
       let nextSet = [];
       //   xx:45 or later
-      if (prevSet[1] > 59 - parseInt(selectedInterval)) {
+      if (prevSet[1] > 59 - selectedInterval) {
         //   (23:45 or later) or not xx != 23
         nextSet = [
           prevSet[0] === 23 ? 0 : prevSet[0] + 1,
-          prevSet[1] - (60 - parseInt(selectedInterval)),
+          prevSet[1] - (60 - selectedInterval),
         ];
       } else {
-        nextSet = [prevSet[0], prevSet[1] + parseInt(selectedInterval)];
+        nextSet = [prevSet[0], prevSet[1] + selectedInterval];
       }
       i < exercises.length
         ? nextSet.push(exercises[i])
@@ -96,11 +98,11 @@ function Body() {
   }
 
   async function onStart() {
-    const shouldStart = getShouldStart(new Date());
+    const [shouldStart, problem] = getShouldStart(new Date());
     const rounds = exercises.length * selectedRounds;
 
     if (!shouldStart) {
-      alert("Select valid starting time!");
+      alert(problem);
     } else {
       setAllSets(getAllSets(rounds));
       showPage("ExerciseList");
@@ -120,14 +122,18 @@ function Body() {
             hours: parseInt(selectedStartTime.substring(0, 2)),
             minutes: parseInt(selectedStartTime.substring(3, 5)),
           };
-    const shouldStart =
+    const [shouldStart, problem] =
       start === null ||
       start.hours - now.hours < 0 ||
       (start.hours - now.hours === 0 && start.minutes - now.minutes <= 0)
-        ? false
-        : true;
+        ? [false, "Select valid starting time!"]
+        : selectedInterval === ""
+        ? [false, "Select valid interval"]
+        : selectedRounds === ""
+        ? [false, "Select valid amount of rounds!"]
+        : [true, null];
 
-    return shouldStart;
+    return [shouldStart, problem];
   }
 
   return (

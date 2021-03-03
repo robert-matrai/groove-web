@@ -5,39 +5,73 @@ import { Typography } from "@material-ui/core";
 function TimeTillNextSet(props) {
   const temp = new Date();
   const now = {
+    hours: temp.getHours(),
     minutes: temp.getMinutes(),
     seconds: temp.getSeconds(),
     milliseconds: temp.getMilliseconds(),
   };
-  const [countDown, setCountDown] = useState({
+  const currentSet = {
+    hours: props.allSets[props.currentSetNum][0],
+    minutes: props.allSets[props.currentSetNum][1],
+  };
+  const countDown = {
+    hours:
+      // if set.hour === now.hour
+      currentSet.hours === now.hours
+        ? 0
+        : // else if set.hour > now.hour and also set.minutes > now.minutes
+        currentSet.minutes > now.minutes
+        ? currentSet.hours - now.hours
+        : // else if set.hour > now and also set.minutes <= now.minutes
+          currentSet.hours - now.hours - 1,
     minutes:
+      // if less than interval until next hour
       60 - now.minutes < props.selectedInterval
-        ? props.allSets[props.currentSetNum][1] + (60 - now.minutes)
-        : props.allSets[props.currentSetNum][1] - now.minutes - 1,
-    seconds: 60 - now.seconds,
-  });
+        ? currentSet.minutes + (59 - now.minutes)
+        : // else if set.minutes < now.minutes (implying it's the next hour)
+        currentSet.minutes < now.minutes
+        ? 60 - now.minutes - 1 + currentSet.minutes
+        : currentSet.minutes - now.minutes - 1,
+    seconds: 59 - now.seconds,
+  };
+  let shouldAlert = true;
+  const [localRerender, doLocalRerender] = useState(true);
 
   setTimeout(() => {
-    setCountDown({
-      minutes:
-        60 - now.minutes < props.selectedInterval
-          ? props.allSets[props.currentSetNum][1] + (60 - now.minutes)
-          : props.allSets[props.currentSetNum][1] - now.minutes - 1,
-      seconds: 59 - now.seconds,
-    });
-    // if 00:00 
-    if (countDown.minutes === 0 && countDown.seconds === 0) {
-      // high level state change callback (enforce rerender) 
-      props.enforceRerender();
+    // if 00:00
+    if (countDown.minutes === 0 && countDown.seconds === 0 && shouldAlert) {
+      // prevent re-alert
+      shouldAlert = false;
       //alert
-      alert(props.allSets[props.currentSetNum][2]);
+      showAlert(props.currentSetNum);
+      // higher level rerender by state change callback
+      props.enforceRerender();
+    } else {
+      // otherwise only rerender locally
+      doLocalRerender(!localRerender);
     }
   }, 1000 - now.milliseconds);
+
+  async function showAlert(currentSetNum) {
+    try {
+      await setTimeout(() => {
+        alert(props.allSets[currentSetNum][2]);
+        shouldAlert = true;
+      }, 40);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   return (
     <Grid item>
       <Grid container justify="center" alignItems="center">
         <Typography variant="h3">
+          {countDown.hours === 0
+            ? null
+            : countDown.hours.toLocaleString("en-US", {
+                minimumIntegerDigits: 2,
+              }) + ":"}
           {countDown.minutes.toLocaleString("en-US", {
             minimumIntegerDigits: 2,
           })}
