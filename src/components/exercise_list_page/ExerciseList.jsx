@@ -6,7 +6,7 @@ import Grid from "@material-ui/core/Grid";
 function ExerciseList(props) {
   const [enforceRerender, setEnforceRerender] = useState(true);
   return (
-    <div className={"full_width"} >
+    <div id={"exerciseList"} className={"full_width"} >
       <Grid container direction="row" justify={"center"} alignItems={"center"} className={"full_height"}>
         <NextSet
           allSets={props.allSets}

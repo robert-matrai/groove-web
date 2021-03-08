@@ -1,24 +1,48 @@
 import React from "react";
 import Title from "./Title";
+import SubTitle from "./SubTitle";
 import List from "./List";
 import CustomNavButton from "./CustomNavButton";
 import Grid from "@material-ui/core/Grid";
+import { makeStyles } from "@material-ui/core";
 
-const title = "Select Exercises";
+const useStyles = makeStyles({
+  wrapper: {},
+  titleWrapper: {
+    width: "50%",
+    height: "100%",
+    paddingTop: "1%",
+  },
+  subTitle: {
+    paddingLeft: "1%"
+  }
+});
+
+const title = "Exercises";
+const subTitle = "Create a list of the exercises you want to include in your workout!";
 
 function Exercises(props) {
+  const classes = useStyles();
   return (
-    <div >
-      <Grid container direction="column">
+    <Grid container direction="row" justify={"flex-start"} alignItems={"center"}>
+      <Grid item className={classes.titleWrapper}>
         <Title title={title} />
-        <List
-          exercises={props.exercises}
-          handleAddNewExercise={props.handleAddNewExercise}
-          handleRemoveExercise={props.handleRemoveExercise}
-        />
-        <CustomNavButton name="Next" onClick={props.handleShowNextPage}  width="full_width"/>
+        <SubTitle subTitle={subTitle} classes={classes}/>
       </Grid>
-    </div>
+      <Grid item className={"input_page"}>
+        <Grid container direction="column">
+          <List
+            exercises={props.exercises}
+            handleAddNewExercise={props.handleAddNewExercise}
+            handleRemoveExercise={props.handleRemoveExercise}
+          />
+          <CustomNavButton
+            name="Next"
+            onClick={props.handleShowNextPage}
+          />
+        </Grid>
+      </Grid>
+    </Grid>
   );
 }
 

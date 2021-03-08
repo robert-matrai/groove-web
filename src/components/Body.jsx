@@ -43,6 +43,14 @@ function Body() {
     setExercises(exercises.filter((exercise) => exercise !== exerciseToDelete));
   }
 
+  function onNext() {
+    if (exercises.length <= 0 ) {
+      alert("You need to select at least one exercise!");
+    } else {
+      showPage("Time");
+    }
+  }
+
   // ***** TIME PAGE *****
   const [selectedStartTime, setSelectedStartTime] = useState("");
   const [selectedInterval, setSelectedInterval] = useState(15);
@@ -144,7 +152,7 @@ function Body() {
             exercises={exercises}
             handleAddNewExercise={handleAddNewExercise}
             handleRemoveExercise={handleRemoveExercise}
-            handleShowNextPage={() => showPage("Time")}
+            handleShowNextPage={onNext}
           />
         ) : whatToShow === "Time" ? (
           <Time

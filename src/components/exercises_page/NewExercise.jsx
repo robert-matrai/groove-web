@@ -12,19 +12,21 @@ function NewExercise(props) {
   }
 
   return (
-    <Grid item container justify="center" alignItems="center">
+    <Grid item container justify="center" alignItems="center"  className={props.classes.exercise}>
       <TextField
         id="AddExercise"
         type="String"
         label=""
         placeholder="Add Exercise"
+        className={props.classes.textfield}
         value={newExercise}
         onChange={handleChangeNewExercise}
         InputProps={{
           endAdornment: (
             <IconButton
               variant="contained"
-              color={"primary"}
+              color={"default"}
+              className={props.classes.addButton}
               onClick={() => {
                 if (newExercise !== "") {
                   props.handleAddNewExercise(newExercise);

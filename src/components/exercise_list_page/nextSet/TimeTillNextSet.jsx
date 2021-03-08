@@ -1,8 +1,23 @@
 import React, { useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import { Typography } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
+
+const useStyles = makeStyles({
+  container: {
+    border: "0.1rem solid white",
+    borderRadius: "8px",
+    padding: "10% 5%",
+    width: "100%",
+    height: "100%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});
 
 function TimeTillNextSet(props) {
+  const classes = useStyles();
   const temp = new Date();
   const now = {
     hours: temp.getHours(),
@@ -39,7 +54,12 @@ function TimeTillNextSet(props) {
 
   setTimeout(() => {
     // if 00:00
-    if (countDown.hours === 0 && countDown.minutes === 0 && countDown.seconds === 0 && shouldAlert) {
+    if (
+      countDown.hours === 0 &&
+      countDown.minutes === 0 &&
+      countDown.seconds === 0 &&
+      shouldAlert
+    ) {
       // prevent re-alert
       shouldAlert = false;
       //alert
@@ -65,8 +85,13 @@ function TimeTillNextSet(props) {
 
   return (
     <Grid item id={"time_till_next_set"} className={"full_width"}>
-      <Grid container justify="center" alignItems="center" className={"full_height"} >
-        <Typography variant="h1">
+      <Grid
+        container
+        justify="center"
+        alignItems="flex-start"
+        className={"full_height full_width"}
+      >
+        <Typography variant="h1" className={classes.container}>
           {countDown.hours === 0
             ? null
             : countDown.hours.toLocaleString("en-US", {

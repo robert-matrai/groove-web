@@ -1,22 +1,39 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import { Typography } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
+
+const useStyles = makeStyles({
+  container: {
+    // border: "0.1rem solid white",
+    // borderRadius: "8px",
+    padding: "10% 5%",
+    width: "100%"
+  },
+  wrapper: {
+    height: "100%",
+    display: "flex",
+    alignItems: "flex-end",
+    justifyContent: "center",
+  }
+});
 
 function Detail(props) {
+  const classes = useStyles();
   return (
-    <Grid item id={"detail"} className={"full_height"}>
+    <Grid item id={"detail"} className={classes.wrapper}>
       <Grid
         container
         direction="column"
-        className={"full_height full_width"}
-        justify={"center"}
+        className={classes.container}
+        justify={"flex-end"}
         alignItems={"center"}
       >
-        <Grid item>
-          <Typography variant="h5"> {props.title}</Typography>
+        <Grid item >
+          <Typography variant="h6"> {props.title}</Typography>
         </Grid>
         <Grid item>
-          <Typography variant="h6"> {props.content}</Typography>
+          <Typography variant="h4"> {props.content}</Typography>
         </Grid>
       </Grid>
     </Grid>

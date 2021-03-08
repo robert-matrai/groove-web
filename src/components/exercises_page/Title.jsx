@@ -4,8 +4,8 @@ import { Typography } from "@material-ui/core";
 
 function Title(props) {
     return (
-        <Grid item container justify="center">
-          <Typography variant="h3" gutterBottom style={{ textAlign: "center" }}>
+        <Grid item container justify="flex-start">
+          <Typography variant="h2" gutterBottom style={{ textAlign: "center" }}>
             {props.title}
           </Typography>
         </Grid>

@@ -8,32 +8,32 @@ html {
   position: relative;
   min-height: 100%;
   min-width: 100%;
+  background-color: grey;
+  background-image: linear-gradient(to bottom, grey, #1b262c);
 }
 
 /* Header */
 header {
-  background-color: #136df5;
-  color: #eee;
-  margin: auto -16px;
-  padding: 16px 2rem;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  padding: 20px 2rem 0;
 }
 
 header h1 {
-  color: #fff;
+  color: #efecec;
   /* font-family: "McLaren", cursive; */
   font-weight: 200;
 }
 
 /* Body */
 
-body {
-  background: #eee;
-  padding: 0 16px;
-}
+
 
 .Body {
-  padding: 50px 20%;
+  padding: 50px 20% 100px;
+  color: #efecec;
+}
+
+.input_page {
+  width: 360px;
 }
 
 /* Title */
@@ -44,13 +44,21 @@ body {
   padding: 5% 15% 2%;
 }
 
+#no_neg_margin {
+  margin: 0;
+}
+
 .exercise {
   padding: 2% 10%;
 }
 
+#exerciseList {
+  height: 500px;
+}
+
 .scroll {
   overflow-y: scroll;
-  height: 300px;
+  height: 100%;
   /* Hide scrollbar */
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
@@ -79,25 +87,28 @@ body {
   height: 100%;
 }
 
-.nextSet {
-  width: 50%;
-}
-
-.allSets {
-  width: 30%;
-}
 
 #time_till_next_set {
   height: 65%;
 }
 
 #details {
-  height: 35%;
+  height: 30%;
 }
 
 #detail {
   width: 30%;
 }
+
+#set {
+  height: 12%;
+  padding: 0 10%;
+}
+
+#setTime {
+  padding-right: 10%;
+}
+
 
 /* Footer */
 

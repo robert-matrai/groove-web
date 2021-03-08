@@ -2,8 +2,20 @@ import React from "react";
 import TimeTillNextSet from "./nextSet/TimeTillNextSet";
 import Details from "./nextSet/Details";
 import Grid from "@material-ui/core/Grid";
+import { makeStyles } from "@material-ui/core";
+
+const useStyles = makeStyles({
+  nextSet: {
+    width: "50%",
+    height: "100%",
+    border: "0.1rem solid white",
+    borderRadius: "8px",
+    padding: "60px 40px",
+  },
+});
 
 function NextSet(props) {
+  const classes = useStyles();
   const temp = new Date();
   const now = {
     hours: temp.getHours(),
@@ -21,8 +33,13 @@ function NextSet(props) {
     }
   }
   return (
-    <Grid item className={"nextSet full_height"}>
-      <Grid container direction="column" justify={"space-between"} className={"full_height"} >
+    <Grid item className={classes.nextSet}>
+      <Grid
+        container
+        direction="column"
+        justify={"space-between"}
+        className={"full_height"}
+      >
         <TimeTillNextSet
           allSets={props.allSets}
           currentSetNum={currentSetNum}

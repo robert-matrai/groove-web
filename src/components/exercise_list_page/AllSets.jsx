@@ -1,11 +1,23 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Set from "./allSets/Set";
+import { makeStyles } from "@material-ui/core";
+
+const useStyles = makeStyles({
+  allSets: {
+    width: "30%",
+    height: "100%",
+    border: "0.1rem solid white",
+    borderRadius: "8px",
+    marginLeft: "50px",
+  },
+});
 
 function AllSets(props) {
+  const classes = useStyles();
   return (
-    <Grid item className={"allSets"} >
-      <Grid container direction="column">
+    <Grid item className={classes.allSets}>
+      <Grid container direction="column" className={"full_height"}>
         <div className={"scroll"}>
           {props.allSets.map((set, index) => {
             const temp = new Date();

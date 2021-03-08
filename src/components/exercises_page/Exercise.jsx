@@ -6,23 +6,19 @@ import TextField from "@material-ui/core/TextField";
 
 function Exercise(props) {
   return (
-    <Grid
-      item
-      container
-      direction="row"
-      justify="center"
-      alignItems="center"
-    >
+    <Grid item container direction="row" justify="center" alignItems="center" className={props.classes.exercise}>
       <TextField
         type="String"
         label=""
         value={props.exercise}
+        className={props.classes.textfield}
         InputProps={{
           readOnly: true,
           endAdornment: (
             <IconButton
               variant="contained"
               color={"default"}
+              className={props.classes.deleteButton}
               onClick={() =>
                 props.handleRemoveExercise(props.exercise, props.index)
               }
