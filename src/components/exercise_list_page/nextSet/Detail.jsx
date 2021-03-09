@@ -8,14 +8,17 @@ const useStyles = makeStyles({
     // border: "0.1rem solid white",
     // borderRadius: "8px",
     padding: "10% 5%",
-    width: "100%"
+    width: "100%",
   },
   wrapper: {
     height: "100%",
     display: "flex",
     alignItems: "flex-end",
     justifyContent: "center",
-  }
+  },
+  title: {
+    color: "#bbe1fa",
+  },
 });
 
 function Detail(props) {
@@ -29,8 +32,11 @@ function Detail(props) {
         justify={"flex-end"}
         alignItems={"center"}
       >
-        <Grid item >
-          <Typography variant="h6"> {props.title}</Typography>
+        <Grid item>
+          <Typography variant="h6" className={classes.title}>
+            {" "}
+            {props.title}
+          </Typography>
         </Grid>
         <Grid item>
           <Typography variant="h4"> {props.content}</Typography>

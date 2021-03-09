@@ -21,7 +21,7 @@ const useStyles = makeStyles({
 
 const title = "Time Settings";
 const subTitle =
-  "Choose the time settings for your workout!";
+  "What time settings would you like for your workout?";
 
 function Time(props) {
   const classes = useStyles();

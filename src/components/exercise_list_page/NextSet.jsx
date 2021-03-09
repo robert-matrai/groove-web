@@ -6,9 +6,9 @@ import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles({
   nextSet: {
-    width: "50%",
+    width: "500px",
     height: "100%",
-    border: "0.1rem solid white",
+    border: "0.1rem solid #3282b8",
     borderRadius: "8px",
     padding: "60px 40px",
   },

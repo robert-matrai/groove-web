@@ -7,9 +7,15 @@ const useStyles = makeStyles({
   allSets: {
     width: "30%",
     height: "100%",
-    border: "0.1rem solid white",
+    // border: "0.1rem solid white",
     borderRadius: "8px",
     marginLeft: "50px",
+    // padding: "1% 0",
+  },
+  container: {
+    // padding: "0 5%",
+    height: "100%",
+    width: "252px",
   },
 });
 
@@ -17,7 +23,7 @@ function AllSets(props) {
   const classes = useStyles();
   return (
     <Grid item className={classes.allSets}>
-      <Grid container direction="column" className={"full_height"}>
+      <Grid container direction="column" className={classes.container}>
         <div className={"scroll"}>
           {props.allSets.map((set, index) => {
             const temp = new Date();

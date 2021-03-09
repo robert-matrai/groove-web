@@ -7,25 +7,30 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles({
   textfield: {
     "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
-      borderColor: "white",
+      borderColor: "#3282b8",
     },
     "& .MuiOutlinedInput-input": {
       color: "white",
+      padding: "18.5px 22px 18.5px 14px",
     },
     "& .MuiInputLabel-outlined": {
-      color: "white",
+      color: "#bbe1fa",
     },
     "& input[type=time]::-webkit-calendar-picker-indicator": {
       opacity: 1,
       filter:
-        "invert(99%) sepia(1%) saturate(3984%) hue-rotate(278deg) brightness(115%) contrast(100%)", // use https://codepen.io/sosuke/pen/Pjoqqp to compute
+        "invert(48%) sepia(9%) saturate(3350%) hue-rotate(161deg) brightness(92%) contrast(87%)", // use https://codepen.io/sosuke/pen/Pjoqqp to compute
+    },
+    "& .MuiOutlinedInput-adornedEnd": {
+      paddingRight: "26px",
     },
   },
+
   unit: {
-    "& .MuiTypography-colorTextSecondary": { color: "white" },
+    "& .MuiTypography-colorTextSecondary": { color: "#3282b8" },
   },
   exercise: {
-    margin: "0.4rem 0",
+    margin: "3% 0",
   },
   list: {
     padding: "4% 15% 2%",

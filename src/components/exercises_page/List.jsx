@@ -7,7 +7,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles({
   textfield: {
     "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
-      borderColor: "white",
+      borderColor: "#3282b8",
     },
     "& .MuiOutlinedInput-input": {
       color: "white",
@@ -17,13 +17,13 @@ const useStyles = makeStyles({
     },
   },
   exercise: {
-    margin: "0.2rem 0",
+    margin: "3% 0",
   },
   deleteButton: {
-    color: "white",
+    color: "#3282b8",
   },
   addButton: {
-    color: "#3282b8",
+    color: "#bbe1fa",
   },
   list: {
     padding: "4% 15% 2%",

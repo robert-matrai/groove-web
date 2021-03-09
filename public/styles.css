@@ -9,7 +9,7 @@ html {
   min-height: 100%;
   min-width: 100%;
   background-color: grey;
-  background-image: linear-gradient(to bottom, grey, #1b262c);
+  background-image: linear-gradient(to bottom, black, #1b262c);
 }
 
 /* Header */
@@ -24,8 +24,6 @@ header h1 {
 }
 
 /* Body */
-
-
 
 .Body {
   padding: 50px 20% 100px;
@@ -52,9 +50,9 @@ header h1 {
   padding: 2% 10%;
 }
 
-#exerciseList {
+/* #exerciseList {
   height: 500px;
-}
+} */
 
 .scroll {
   overflow-y: scroll;
@@ -87,7 +85,6 @@ header h1 {
   height: 100%;
 }
 
-
 #time_till_next_set {
   height: 65%;
 }
@@ -99,16 +96,6 @@ header h1 {
 #detail {
   width: 30%;
 }
-
-#set {
-  height: 12%;
-  padding: 0 10%;
-}
-
-#setTime {
-  padding-right: 10%;
-}
-
 
 /* Footer */
 

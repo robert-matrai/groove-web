@@ -19,7 +19,7 @@ const useStyles = makeStyles({
 });
 
 const title = "Exercises";
-const subTitle = "Create a list of the exercises you want to include in your workout!";
+const subTitle = "What exercises would you like to include in your workout?";
 
 function Exercises(props) {
   const classes = useStyles();
