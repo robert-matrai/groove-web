@@ -28,17 +28,19 @@ function AllSets(props) {
           {props.allSets.map((set, index) => {
             const temp = new Date();
             const now = {
+              date: temp.getDate(),
               hours: temp.getHours(),
               minutes: temp.getMinutes(),
             };
             console.log("now in allsets: ");
             console.log(now);
-            return index > 0 && // never show first set
+            return (index > 0 && // never show first set
               ((set[0] === now.hours &&
                 set[1] > now.minutes + props.selectedInterval) ||
                 (set[0] === now.hours + 1 &&
                   set[1] > props.selectedInterval - (60 - now.minutes)) ||
-                set[0] > now.hours + 1) ? (
+                set[0] > now.hours + 1)) ||
+              set[3] > now.date ? (
               <Set key={index} set={set} index={index} />
             ) : null;
           })}

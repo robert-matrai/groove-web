@@ -44,7 +44,7 @@ function Body() {
   }
 
   function onNext() {
-    if (exercises.length <= 0 ) {
+    if (exercises.length <= 0) {
       alert("You need to select at least one exercise!");
     } else {
       showPage("Time");
@@ -77,19 +77,22 @@ function Body() {
   const [allSets, setAllSets] = useState([]);
 
   function getAllSets(howManySets) {
+    let date = new Date().getDate();
     let sets = [
       [
         parseInt(selectedStartTime.substring(0, 2)),
         parseInt(selectedStartTime.substring(3, 5)),
         exercises[0],
+        date,
       ],
     ];
     for (let i = 1; i < howManySets; i++) {
       const prevSet = [sets[i - 1][0], sets[i - 1][1]];
       let nextSet = [];
-      //   xx:45 or later
+      //   00:00 - selectedInterval or later
       if (prevSet[1] > 59 - selectedInterval) {
-        //   (23:45 or later) or not xx != 23
+        if (prevSet[0] === 23) date = date + 1;
+        //   (00:00 - selectedInterval or later) or not xx != 23
         nextSet = [
           prevSet[0] === 23 ? 0 : prevSet[0] + 1,
           prevSet[1] - (60 - selectedInterval),
@@ -100,6 +103,7 @@ function Body() {
       i < exercises.length
         ? nextSet.push(exercises[i])
         : nextSet.push(exercises[i % exercises.length]);
+      nextSet.push(date);
       sets.push(nextSet);
     }
     return sets;
