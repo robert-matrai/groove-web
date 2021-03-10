@@ -85,13 +85,13 @@ header h1 {
   height: 100%;
 }
 
-#time_till_next_set {
+/* #time_till_next_set {
   height: 65%;
-}
+} */
 
-#details {
+/* #details {
   height: 30%;
-}
+} */
 
 #detail {
   width: 30%;

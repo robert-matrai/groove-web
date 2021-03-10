@@ -1,16 +1,25 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Detail from "./Detail";
+import { makeStyles } from "@material-ui/core";
+
+const useStyles = makeStyles({
+  wrapper: {
+    width: "100%",
+    height: "38%",
+  },
+});
 
 function Details(props) {
+  const classes = useStyles();
   return (
-    <Grid item id={"details"} className={"full_width"}>
+    <Grid item className={classes.wrapper}>
       <Grid
         container
         direction="row"
         className={"full_height"}
         justify={"space-between"}
-        alignItems={"flex-end"}
+        alignItems={"center"}
       >
         <Detail
           title={"Time"}

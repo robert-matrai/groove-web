@@ -4,10 +4,14 @@ import { Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles({
+  wrapper: {
+    width: "100%",
+    height: "62%",
+  },
   container: {
     borderBottom: "0.1rem solid #3282b8",
     // borderRadius: "8px",
-    padding: "10% 5%",
+    padding: "10% 5% 2%",
     width: "100%",
     height: "100%",
     display: "flex",
@@ -84,7 +88,7 @@ function TimeTillNextSet(props) {
   }
 
   return (
-    <Grid item id={"time_till_next_set"} className={"full_width"}>
+    <Grid item id={"time_till_next_set"} className={classes.wrapper}>
       <Grid
         container
         justify="center"

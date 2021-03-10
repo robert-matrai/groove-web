@@ -9,11 +9,13 @@ const useStyles = makeStyles({
     // borderRadius: "8px",
     padding: "10% 5%",
     width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
   },
   wrapper: {
     height: "100%",
     display: "flex",
-    alignItems: "flex-end",
+    alignItems: "center",
     justifyContent: "center",
   },
   title: {
@@ -29,8 +31,6 @@ function Detail(props) {
         container
         direction="column"
         className={classes.container}
-        justify={"flex-end"}
-        alignItems={"center"}
       >
         <Grid item>
           <Typography variant="h6" className={classes.title}>
