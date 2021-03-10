@@ -5,7 +5,7 @@ import ExerciseList from "./exercise_list_page/ExerciseList";
 import "date-fns";
 import Grid from "@material-ui/core/Grid";
 
-function Body() {
+function Workout() {
   // ***** PAGE NAVIGATION *****
   const [whatToShow, setWhatToShow] = useState("Exercises");
 
@@ -149,7 +149,7 @@ function Body() {
   }
 
   return (
-    <div className="Body">
+    <div className="Workout">
       <Grid container justify="space-around">
         {whatToShow === "Exercises" ? (
           <Exercises
@@ -181,4 +181,4 @@ function Body() {
   );
 }
 
-export default Body;
+export default Workout;
