@@ -8,25 +8,14 @@ html {
   position: relative;
   min-height: 100%;
   min-width: 100%;
-  background-color: grey;
+  background-color: black;
   background-image: linear-gradient(to bottom, black, #1b262c);
-}
-
-/* Header */
-header {
-  padding: 20px 2rem 0;
-}
-
-header h1 {
-  color: #efecec;
-  /* font-family: "McLaren", cursive; */
-  font-weight: 200;
 }
 
 /* Body */
 
 .Workout {
-  padding: 50px 20% 100px;
+  padding: 20px 0 100px;
   color: #efecec;
 }
 
@@ -50,10 +39,6 @@ header h1 {
   padding: 2% 10%;
 }
 
-/* #exerciseList {
-  height: 500px;
-} */
-
 .scroll {
   overflow-y: scroll;
   height: 100%;
@@ -69,10 +54,6 @@ header h1 {
 
 /* Bottom */
 
-/* #bottom {
-  margin: 16px 0 0 0;
-} */
-
 .full_width {
   width: 100%;
 }
@@ -85,28 +66,8 @@ header h1 {
   height: 100%;
 }
 
-/* #time_till_next_set {
-  height: 65%;
-} */
-
-/* #details {
-  height: 30%;
-} */
-
 #detail {
   width: 30%;
 }
 
-/* Footer */
 
-footer {
-  position: absolute;
-  text-align: center;
-  bottom: 0;
-  width: 100%;
-  height: 2.5rem;
-}
-
-footer p {
-  color: #ccc;
-}

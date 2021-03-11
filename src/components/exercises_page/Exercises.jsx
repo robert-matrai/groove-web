@@ -14,8 +14,8 @@ const useStyles = makeStyles({
     paddingTop: "1%",
   },
   subTitle: {
-    paddingLeft: "1%"
-  }
+    paddingLeft: "1%",
+  },
 });
 
 const title = "Exercises";
@@ -24,10 +24,15 @@ const subTitle = "What exercises would you like to include in your workout?";
 function Exercises(props) {
   const classes = useStyles();
   return (
-    <Grid container direction="row" justify={"flex-start"} alignItems={"center"}>
+    <Grid
+      container
+      direction="row"
+      justify={"flex-start"}
+      alignItems={"center"}
+    >
       <Grid item className={classes.titleWrapper}>
         <Title title={title} />
-        <SubTitle subTitle={subTitle} classes={classes}/>
+        <SubTitle subTitle={subTitle} classes={classes} />
       </Grid>
       <Grid item className={"input_page"}>
         <Grid container direction="column">
@@ -36,10 +41,7 @@ function Exercises(props) {
             handleAddNewExercise={props.handleAddNewExercise}
             handleRemoveExercise={props.handleRemoveExercise}
           />
-          <CustomNavButton
-            name="Next"
-            onClick={props.handleShowNextPage}
-          />
+          <CustomNavButton name="Next" onClick={props.handleShowNextPage} />
         </Grid>
       </Grid>
     </Grid>

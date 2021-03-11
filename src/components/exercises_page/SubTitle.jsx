@@ -3,11 +3,20 @@ import Grid from "@material-ui/core/Grid";
 import { Typography } from "@material-ui/core";
 
 export default function SubTitle(props) {
-    return (
-        <Grid item container justify="flex-start" className={props.classes.subTitle}>
-          <Typography variant="h7" gutterBottom style={{ textAlign: "center" }}>
-            {props.subTitle}
-          </Typography>
-        </Grid>
-    )
+  return (
+    <Grid
+      item
+      container
+      justify="flex-start"
+      className={props.classes.subTitle}
+    >
+      <Typography
+        variant="h7"
+        gutterBottom
+        style={{ textAlign: "start", fontFamily: "Helvetica" }}
+      >
+        {props.subTitle}
+      </Typography>
+    </Grid>
+  );
 }
