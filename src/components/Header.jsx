@@ -2,18 +2,18 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   brand: {
     textDecorationLine: "none",
-    color: "#efecec",
+    color: theme.palette.text.primary,
     fontWeight: "200",
     fontFamily: "Helvetica",
-    fontSize: "1.3rem"
+    fontSize: "1.3rem",
   },
   header: {
     padding: "20px 0",
-  }
-});
+  },
+}));
 
 function Header() {
   const classes = useStyles();

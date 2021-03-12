@@ -7,13 +7,10 @@ const useStyles = makeStyles({
   allSets: {
     width: "30%",
     height: "100%",
-    // border: "0.1rem solid white",
     borderRadius: "8px",
     marginLeft: "50px",
-    // padding: "1% 0",
   },
   container: {
-    // padding: "0 5%",
     height: "100%",
     width: "252px",
   },

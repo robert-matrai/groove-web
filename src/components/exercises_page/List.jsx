@@ -4,31 +4,28 @@ import Exercise from "./Exercise";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   textfield: {
     "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
-      borderColor: "#3282b8",
+      borderColor: theme.palette.textField.outline,
     },
     "& .MuiOutlinedInput-input": {
-      color: "white",
-    },
-    "& .MuiInputLabel-outlined": {
-      color: "white",
+      color: theme.palette.text.primary,
     },
   },
   exercise: {
     margin: "3% 0",
   },
-  deleteButton: {
-    color: "#3282b8",
-  },
-  addButton: {
-    color: "#bbe1fa",
+  textFieldButton: {
+    "&:hover": {
+      color: theme.palette.textField.button.hover,
+    },
+    color: theme.palette.textField.button.active,
   },
   list: {
     padding: "4% 15% 2%",
   },
-});
+}));
 
 function List(props) {
   const classes = useStyles();

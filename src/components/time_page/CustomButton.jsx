@@ -3,15 +3,15 @@ import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   button: {
     "&:hover": {
-      backgroundColor: "#3282b8",
+      backgroundColor: theme.palette.button.hover,
     },
-    backgroundColor: "#0f4c75",
+    backgroundColor: theme.palette.button.active,
     width: "100%",
   },
-});
+}));
 
 function CustomButton(props) {
   const classes = useStyles();

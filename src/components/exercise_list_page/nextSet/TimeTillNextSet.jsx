@@ -3,14 +3,14 @@ import Grid from "@material-ui/core/Grid";
 import { Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   wrapper: {
     width: "100%",
     height: "62%",
   },
   container: {
-    borderBottom: "0.1rem solid #3282b8",
-    // borderRadius: "8px",
+    borderBottom: "0.1rem solid",
+    borderBottomColor: theme.palette.textField.outline,
     padding: "10% 5% 2%",
     width: "100%",
     height: "100%",
@@ -18,7 +18,7 @@ const useStyles = makeStyles({
     alignItems: "center",
     justifyContent: "center",
   },
-});
+}));
 
 function TimeTillNextSet(props) {
   const classes = useStyles();

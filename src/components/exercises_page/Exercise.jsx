@@ -18,7 +18,7 @@ function Exercise(props) {
             <IconButton
               variant="contained"
               color={"default"}
-              className={props.classes.deleteButton}
+              className={props.classes.textFieldButton}
               onClick={() =>
                 props.handleRemoveExercise(props.exercise, props.index)
               }

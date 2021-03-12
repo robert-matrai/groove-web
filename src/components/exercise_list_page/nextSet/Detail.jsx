@@ -3,30 +3,29 @@ import Grid from "@material-ui/core/Grid";
 import { Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   container: {
-    // border: "0.1rem solid white",
-    // borderRadius: "8px",
     padding: "10% 5%",
     width: "100%",
     alignItems: "center",
     justifyContent: "center",
   },
   wrapper: {
+    width: "30%",
     height: "100%",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
   },
   title: {
-    color: "#bbe1fa",
+    color: theme.palette.text.secondary,
   },
-});
+}));
 
 function Detail(props) {
   const classes = useStyles();
   return (
-    <Grid item id={"detail"} className={classes.wrapper}>
+    <Grid item className={classes.wrapper}>
       <Grid
         container
         direction="column"

@@ -7,7 +7,6 @@ import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles({
-  wrapper: {},
   titleWrapper: {
     width: "50%",
     height: "100%",

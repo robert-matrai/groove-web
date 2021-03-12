@@ -4,8 +4,18 @@ import Exercises from "./exercises_page/Exercises";
 import ExerciseList from "./exercise_list_page/ExerciseList";
 import "date-fns";
 import Grid from "@material-ui/core/Grid";
+import { makeStyles } from "@material-ui/core";
+
+const useStyles = makeStyles((theme) => ({
+  workout: {
+    color: theme.palette.text.primary,
+    padding: "20px 0 100px",
+  },
+}));
 
 function Workout() {
+  const classes = useStyles();
+
   // ***** PAGE NAVIGATION *****
   const [whatToShow, setWhatToShow] = useState("Exercises");
 
@@ -149,7 +159,7 @@ function Workout() {
   }
 
   return (
-    <div className="Workout">
+    <div className={classes.workout}>
       <Grid container justify="space-around">
         {whatToShow === "Exercises" ? (
           <Exercises

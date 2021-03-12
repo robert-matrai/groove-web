@@ -4,22 +4,21 @@ import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   textfield: {
     "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
-      borderColor: "#3282b8",
+      borderColor: theme.palette.textField.outline,
     },
     "& .MuiOutlinedInput-input": {
-      color: "white",
+      color: theme.palette.text.primary,
       padding: "18.5px 22px 18.5px 14px",
     },
     "& .MuiInputLabel-outlined": {
-      color: "#bbe1fa",
+      color: theme.palette.text.secondary,
     },
     "& input[type=time]::-webkit-calendar-picker-indicator": {
       opacity: 1,
-      filter:
-        "invert(48%) sepia(9%) saturate(3350%) hue-rotate(161deg) brightness(92%) contrast(87%)", // use https://codepen.io/sosuke/pen/Pjoqqp to compute
+      filter: theme.palette.textField.button.activeFilter,
     },
     "& .MuiOutlinedInput-adornedEnd": {
       paddingRight: "26px",
@@ -27,7 +26,9 @@ const useStyles = makeStyles({
   },
 
   unit: {
-    "& .MuiTypography-colorTextSecondary": { color: "#3282b8" },
+    "& .MuiTypography-colorTextSecondary": {
+      color: theme.palette.textField.button.active,
+    },
   },
   exercise: {
     margin: "3% 0",
@@ -35,7 +36,7 @@ const useStyles = makeStyles({
   list: {
     padding: "4% 15% 2%",
   },
-});
+}));
 
 function List(props) {
   const classes = useStyles();

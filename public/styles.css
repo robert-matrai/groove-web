@@ -14,22 +14,11 @@ html {
 
 /* Body */
 
-.Workout {
-  padding: 20px 0 100px;
-  color: #efecec;
-}
-
 .input_page {
   width: 360px;
 }
 
-/* Title */
-
 /* Middle */
-
-.list {
-  padding: 5% 15% 2%;
-}
 
 #no_neg_margin {
   margin: 0;
@@ -64,10 +53,6 @@ html {
 
 .full_height {
   height: 100%;
-}
-
-#detail {
-  width: 30%;
 }
 
 

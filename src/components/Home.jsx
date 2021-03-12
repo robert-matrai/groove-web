@@ -6,7 +6,7 @@ import SubTitle from "./exercises_page/SubTitle";
 import { makeStyles } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   titleWrapper: {
     width: "50%",
     height: "100%",
@@ -17,20 +17,20 @@ const useStyles = makeStyles({
   },
   button: {
     "&:hover": {
-      backgroundColor: "#3282b8",
+      backgroundColor: theme.palette.button.hover,
     },
-    backgroundColor: "#0f4c75",
+    backgroundColor: theme.palette.button.active,
     width: "100%",
   },
   link: {
-    color: "#efecec",
+    color: theme.palette.text.primary,
     textDecorationLine: "none",
   },
   home: {
     padding: "20px 0 100px",
-    color: "#efecec",
+    color: theme.palette.text.primary,
   },
-});
+}));
 
 const title = "Welcome to Groove";
 const subTitle =

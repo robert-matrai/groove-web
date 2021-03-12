@@ -4,15 +4,16 @@ import Details from "./nextSet/Details";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   nextSet: {
     width: "500px",
     height: "100%",
-    border: "0.1rem solid #3282b8",
+    border: "0.1rem solid",
+    borderColor: theme.palette.textField.outline,
     borderRadius: "8px",
     padding: "0 40px",
   },
-});
+}));
 
 function NextSet(props) {
   const classes = useStyles();

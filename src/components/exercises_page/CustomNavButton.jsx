@@ -3,22 +3,28 @@ import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   button: {
     "&:hover": {
-      backgroundColor: "#3282b8"
+      backgroundColor: theme.palette.button.hover,
     },
-    backgroundColor: "#0f4c75",
-    width: "100%"
-  }
-}
-
-);
+    backgroundColor: theme.palette.button.active,
+    width: "100%",
+  },
+  wrapper: {
+    padding: "5% 15% 2%",
+  },
+}));
 
 function CustomNavButton(props) {
   const classes = useStyles();
   return (
-    <Grid item={true} container={true} justify="center" className="list">
+    <Grid
+      item={true}
+      container={true}
+      justify="center"
+      className={classes.wrapper}
+    >
       <Button
         variant="contained"
         color={"primary"}

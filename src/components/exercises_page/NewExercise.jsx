@@ -26,7 +26,7 @@ function NewExercise(props) {
             <IconButton
               variant="contained"
               color={"default"}
-              className={props.classes.addButton}
+              className={props.classes.textFieldButton}
               onClick={() => {
                 if (newExercise !== "") {
                   props.handleAddNewExercise(newExercise);

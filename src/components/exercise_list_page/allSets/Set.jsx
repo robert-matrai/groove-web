@@ -2,27 +2,26 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import { Typography, makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   set: {
-    border: "0.5px solid #3282b8",
+    border: "0.1rem solid",
+    borderColor: theme.palette.textField.outline,
     borderRadius: "8px",
     height: "56px",
     padding: "0 5%",
-    // transparency
-    // background: "linear-gradient(transparent, #1b262c)",
     marginBottom: "5.5%",
   },
   setTime: {
     paddingRight: "10%",
     "& .MuiTypography-body1": {
       fontSize: "0.9rem",
-      color: "#bbe1fa",
+      color: theme.palette.text.secondary,
     },
   },
   setName: {
     fontSize: "1rem",
   },
-});
+}));
 
 function Set(props) {
   const classes = useStyles();

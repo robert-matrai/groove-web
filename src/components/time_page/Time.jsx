@@ -8,20 +8,21 @@ import "date-fns";
 import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles({
-  wrapper: {},
   titleWrapper: {
     width: "50%",
     height: "100%",
     paddingTop: "1%",
   },
   subTitle: {
-    paddingLeft: "1%"
-  }
+    paddingLeft: "1%",
+  },
+  buttonWrapper: {
+    padding: "5% 15% 2%",
+  },
 });
 
 const title = "Time Settings";
-const subTitle =
-  "What time settings would you like for your workout?";
+const subTitle = "What time settings would you like for your workout?";
 
 function Time(props) {
   const classes = useStyles();
@@ -34,7 +35,7 @@ function Time(props) {
     >
       <Grid item className={classes.titleWrapper}>
         <Title title={title} />
-        <SubTitle subTitle={subTitle} classes={classes}/>
+        <SubTitle subTitle={subTitle} classes={classes} />
       </Grid>
       <Grid item className={"input_page"}>
         <Grid container direction="column">
@@ -53,7 +54,7 @@ function Time(props) {
             direction="row"
             justify="space-between"
             alignItems="center"
-            className={"list"}
+            className={classes.buttonWrapper}
           >
             <CustomButton
               name="Back"
