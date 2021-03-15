@@ -29,8 +29,6 @@ function AllSets(props) {
               hours: temp.getHours(),
               minutes: temp.getMinutes(),
             };
-            console.log("now in allsets: ");
-            console.log(now);
             return (index > 0 && // never show first set
               ((set[0] === now.hours &&
                 set[1] > now.minutes + props.selectedInterval) ||

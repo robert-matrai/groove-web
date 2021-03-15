@@ -3,8 +3,11 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Home from "./Home";
 import Workout from "./Workout";
+import Finish from "./Finish";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
+import { createBrowserHistory } from "history";
+
 
 const useStyles = makeStyles({
   page: {
@@ -13,15 +16,18 @@ const useStyles = makeStyles({
   },
 });
 
+
 function App() {
   const classes = useStyles();
+  const history = createBrowserHistory();
   return (
     <div className={classes.page}>
-      <Router>
+      <Router history={history}>
         <Header />
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/workout" exact component={Workout} />
+          <Route path="/finish" exact component={Finish} />
         </Switch>
         <Footer />
       </Router>

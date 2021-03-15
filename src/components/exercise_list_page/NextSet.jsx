@@ -43,6 +43,7 @@ function NextSet(props) {
       >
         <TimeTillNextSet
           allSets={props.allSets}
+          numOfSets={props.numOfSets}
           currentSetNum={currentSetNum}
           selectedInterval={props.selectedInterval}
           enforceRerender={props.enforceRerender}

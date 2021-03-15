@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import { Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
+import { useHistory } from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
@@ -22,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function TimeTillNextSet(props) {
+  const history = useHistory();
   const classes = useStyles();
   const temp = new Date();
   const now = {
@@ -69,8 +71,13 @@ function TimeTillNextSet(props) {
       shouldAlert = false;
       //alert
       showAlert(props.currentSetNum);
-      // higher level rerender by state change callback
-      props.enforceRerender();
+      if ((parseInt(props.currentSetNum) + 1) === parseInt(props.numOfSets)) {
+        //showFinishPage();
+        history.push('/finish')
+      } else {
+        // higher level rerender by state change callback
+        props.enforceRerender();
+      }
     } else {
       // otherwise only rerender locally
       doLocalRerender(!localRerender);
@@ -113,6 +120,6 @@ function TimeTillNextSet(props) {
       </Grid>
     </Grid>
   );
-}
+};
 
 export default TimeTillNextSet;

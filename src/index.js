@@ -24,6 +24,10 @@ const theme = createMuiTheme({
       fontWeight: "400",
       fontSize: "1rem",
     },
+    footer: {
+      fontSize: "0.8rem",
+      fontWeight: "200",
+    }
   },
   palette: {
     text: {
