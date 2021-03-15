@@ -8,7 +8,13 @@ const useStyles = makeStyles((theme) => ({
     bottom: "0",
     width: "100%",
     height: "2.5rem",
-    marginLeft: "-20%",
+    margin: "0 -6%",
+    [theme.breakpoints.up("sm")]: {
+      margin: "0 -12%",
+    },
+    [theme.breakpoints.up("lg")]: {
+      margin: "0 -20%",
+    },
   },
   p: {
     color: theme.palette.text.footer,
@@ -17,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Footer() {
+function Footer(props) {
   const classes = useStyles();
   const year = new Date().getFullYear();
   return (

@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import { Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
+// import addNotification from 'react-push-notification';
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
@@ -88,6 +89,7 @@ function TimeTillNextSet(props) {
     try {
       await setTimeout(() => {
         alert(props.allSets[currentSetNum][2]);
+        // addNotification({title: props.allSets[currentSetNum][2], native: true});
         shouldAlert = true;
       }, 40);
     } catch (err) {

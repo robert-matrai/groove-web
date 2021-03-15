@@ -4,9 +4,10 @@ import { Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
-  title: { 
-    ...theme.typography.title, 
-    fontFamily: theme.typography.fontFamily },
+  title: {
+    ...theme.typography.title,
+    fontFamily: theme.typography.fontFamily,
+  },
 }));
 
 function Title(props) {
