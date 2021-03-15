@@ -6,7 +6,7 @@ import SubTitle from "./exercises_page/SubTitle";
 import { makeStyles } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   titleWrapper: {
     width: "50%",
     height: "100%",
@@ -21,6 +21,7 @@ const useStyles = makeStyles(theme => ({
     },
     backgroundColor: theme.palette.button.active,
     width: "100%",
+    fontFamily: theme.typography.fontFamily,
   },
   link: {
     color: theme.palette.text.primary,

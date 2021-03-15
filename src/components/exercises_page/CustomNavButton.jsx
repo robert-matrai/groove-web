@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
     },
     backgroundColor: theme.palette.button.active,
     width: "100%",
+    fontFamily: theme.typography.fontFamily,
   },
   wrapper: {
     padding: "5% 15% 2%",

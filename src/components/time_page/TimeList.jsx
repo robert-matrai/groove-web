@@ -23,6 +23,12 @@ const useStyles = makeStyles((theme) => ({
     "& .MuiOutlinedInput-adornedEnd": {
       paddingRight: "26px",
     },
+    "& .MuiFormLabel-root": {
+      fontFamily: theme.typography.fontFamily,
+    },
+    "& .MuiInputBase-root": {
+      fontFamily: theme.typography.fontFamily,
+    },
   },
 
   unit: {

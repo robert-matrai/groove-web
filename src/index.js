@@ -5,7 +5,25 @@ import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
 const theme = createMuiTheme({
   typography: {
-    fontFamily: "Helvetica",
+    fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
+    brand: {
+      fontSize: "1.3rem",
+      fontWeight: "200",
+    },
+    title: {
+      textAlign: "start",
+      fontSize: "4rem",
+      fontWeight: "300",
+    },
+    subTitle: {
+      textAlign: "start",
+      fontSize: "1rem",
+      fontWeight: "200",
+    },
+    textField: {
+      fontWeight: "400",
+      fontSize: "1rem",
+    },
   },
   palette: {
     text: {
@@ -21,7 +39,8 @@ const theme = createMuiTheme({
       button: {
         active: "#3282b8",
         hover: "#bbe1fa",
-        activeFilter: "invert(48%) sepia(9%) saturate(3350%) hue-rotate(161deg) brightness(92%) contrast(87%)", // use https://codepen.io/sosuke/pen/Pjoqqp to compute
+        activeFilter:
+          "invert(48%) sepia(9%) saturate(3350%) hue-rotate(161deg) brightness(92%) contrast(87%)", // use https://codepen.io/sosuke/pen/Pjoqqp to compute
       },
       outline: "#3282b8",
     },

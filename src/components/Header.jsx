@@ -2,13 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   brand: {
     textDecorationLine: "none",
-    color: theme.palette.text.primary,
-    fontWeight: "200",
-    fontFamily: "Helvetica",
-    fontSize: "1.3rem",
+    fontFamily: theme.typography.fontFamily,
+    fontWeight: theme.typography.brand.fontWeight,
+    fontSize: theme.typography.brand.fontSize,
+    color: theme.palette.textField.button.active,
+    "&:hover": {
+      color: theme.palette.textField.button.hover,
+    },
   },
   header: {
     padding: "20px 0",

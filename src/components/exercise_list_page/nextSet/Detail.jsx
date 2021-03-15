@@ -9,6 +9,7 @@ const useStyles = makeStyles(theme => ({
     width: "100%",
     alignItems: "center",
     justifyContent: "center",
+    fontFamily: theme.typography.fontFamily,
   },
   wrapper: {
     width: "30%",

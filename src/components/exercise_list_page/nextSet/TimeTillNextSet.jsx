@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme) => ({
     height: "62%",
   },
   container: {
+    fontFamily: theme.typography.fontFamily,
     borderBottom: "0.1rem solid",
     borderBottomColor: theme.palette.textField.outline,
     padding: "10% 5% 2%",

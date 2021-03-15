@@ -4,8 +4,12 @@ import Exercise from "./Exercise";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   textfield: {
+    "& .MuiInputBase-root": {
+      fontFamily: theme.typography.fontFamily,
+      ...theme.typography.textField,
+    },
     "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
       borderColor: theme.palette.textField.outline,
     },
