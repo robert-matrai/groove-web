@@ -4,14 +4,17 @@ import Details from "./nextSet/Details";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   nextSet: {
-    width: "500px",
+    width: "380px",
     height: "100%",
     border: "0.1rem solid",
     borderColor: theme.palette.textField.outline,
     borderRadius: "8px",
     padding: "0 40px",
+  },
+  container: {
+    height: "100%",
   },
 }));
 
@@ -34,27 +37,27 @@ function NextSet(props) {
     }
   }
   return (
-    <Grid item className={classes.nextSet}>
-      <Grid
-        container
-        direction="column"
-        justify={"space-between"}
-        className={"full_height"}
-      >
-        <TimeTillNextSet
-          allSets={props.allSets}
-          numOfSets={props.numOfSets}
-          currentSetNum={currentSetNum}
-          selectedInterval={props.selectedInterval}
-          enforceRerender={props.enforceRerender}
-        />
-        <Details
-          numOfSets={props.numOfSets}
-          allSets={props.allSets}
-          currentSetNum={currentSetNum}
-        />
+      <Grid item className={classes.nextSet}>
+        <Grid
+          container
+          direction="column"
+          justify={"space-between"}
+          className={classes.container}
+        >
+          <TimeTillNextSet
+            allSets={props.allSets}
+            numOfSets={props.numOfSets}
+            currentSetNum={currentSetNum}
+            selectedInterval={props.selectedInterval}
+            enforceRerender={props.enforceRerender}
+          />
+          <Details
+            numOfSets={props.numOfSets}
+            allSets={props.allSets}
+            currentSetNum={currentSetNum}
+          />
+        </Grid>
       </Grid>
-    </Grid>
   );
 }
 

@@ -8,36 +8,34 @@ import { Router, Switch, Route } from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
 import { createBrowserHistory } from "history";
 
-
-const useStyles = makeStyles( theme => ({
+const useStyles = makeStyles((theme) => ({
   page: {
-    // default
-    margin: "0 6%",
+    margin: `0 ${theme.breakpoints.pageMargin}%`,
     [theme.breakpoints.up("sm")]: {
-      margin: "0 12%",
-    },
-    [theme.breakpoints.up("lg")]: {
-      margin: "0 20%",
+      width: `${theme.breakpoints.pageWidth}px`,
+      margin: "0 auto",
     },
   },
 }));
 
-
-function App() {
+function App(props) {
   const classes = useStyles();
   const history = createBrowserHistory();
   return (
-    <div className={classes.page}>
-      <Router history={history}>
-        <Header />
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/workout" exact component={Workout} />
-          <Route path="/finish" exact component={Finish} />
-        </Switch>
-        <Footer classes={classes}/>
-      </Router>
-    </div>
+    <>
+      <div className={classes.page}>
+        <Router history={history}>
+          <Header />
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/workout" exact component={Workout} />
+            <Route path="/finish" exact component={Finish} />
+          </Switch>
+        </Router>
+      </div>
+
+      <Footer classes={classes} />
+    </>
   );
 }
 

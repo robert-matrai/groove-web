@@ -40,7 +40,9 @@ const useStyles = makeStyles((theme) => ({
     margin: "3% 0",
   },
   list: {
-    padding: "4% 15% 2%",
+    padding: "4% 0 2%",
+    width: "252px",
+    margin: "0",
   },
 }));
 
@@ -54,7 +56,7 @@ function List(props) {
       justify="center"
       alignItems="center"
       className={classes.list}
-      id={"no_neg_margin"}
+      // id={"no_neg_margin"}
     >
       <Grid
         item

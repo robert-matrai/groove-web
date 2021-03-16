@@ -20,7 +20,11 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     color: theme.palette.text.secondary,
+    fontSize: "1.2rem",
   },
+  content: {
+    fontSize: "1.7rem",
+  }
 }));
 
 function Detail(props) {
@@ -39,7 +43,7 @@ function Detail(props) {
           </Typography>
         </Grid>
         <Grid item>
-          <Typography variant="h4"> {props.content}</Typography>
+          <Typography variant="h4" className={classes.content}> {props.content}</Typography>
         </Grid>
       </Grid>
     </Grid>

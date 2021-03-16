@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: theme.typography.fontFamily,
   },
   wrapper: {
-    padding: "5% 15% 2%",
+    padding: "5% 0 2%",
   },
 }));
 

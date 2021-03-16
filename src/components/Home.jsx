@@ -11,10 +11,6 @@ const useStyles = makeStyles((theme) => ({
     width: "350px",
     height: "100%",
     padding: "10px 0 40px",
-
-    [theme.breakpoints.up("sm")]: {
-      width: "400px",
-    },
   },
   subTitle: {
     paddingLeft: "2px",

@@ -8,13 +8,7 @@ const useStyles = makeStyles((theme) => ({
     bottom: "0",
     width: "100%",
     height: "2.5rem",
-    margin: "0 -6%",
-    [theme.breakpoints.up("sm")]: {
-      margin: "0 -12%",
-    },
-    [theme.breakpoints.up("lg")]: {
-      margin: "0 -20%",
-    },
+    margin: "0 auto",
   },
   p: {
     color: theme.palette.text.footer,

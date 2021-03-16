@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
     height: "62%",
   },
   container: {
+    fontSize: "4.5rem",
     fontFamily: theme.typography.fontFamily,
     borderBottom: "0.1rem solid",
     borderBottomColor: theme.palette.textField.outline,

@@ -7,19 +7,34 @@ import Grid from "@material-ui/core/Grid";
 import "date-fns";
 import { makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles({
+const listWrapperWidth = 250;
+
+const useStyles = makeStyles((theme) => ({
+  titleWrapperOuter: {
+    marginBottom: "30px",
+    [theme.breakpoints.up("sm")]: {
+      height: "100%",
+    },
+  },
   titleWrapper: {
-    width: "50%",
-    height: "100%",
-    paddingTop: "1%",
+    paddingTop: "8px",
+    width: "380px",
   },
   subTitle: {
-    paddingLeft: "1%",
+    paddingLeft: "2px",
+    width: "280px",
+  },
+  listWrapper: {
+    width: `${listWrapperWidth}px`,
+    marginLeft: 0,
+    [theme.breakpoints.up("sm")]: {
+      marginLeft: `${theme.breakpoints.pageWidth / 2 - listWrapperWidth}px`,
+    },
   },
   buttonWrapper: {
-    padding: "5% 15% 2%",
+    padding: "5% 0 2%",
   },
-});
+}));
 
 const title = "Time Settings";
 const subTitle = "What time settings would you like for your workout?";
@@ -33,12 +48,14 @@ function Time(props) {
       justify={"flex-start"}
       alignItems={"center"}
     >
-      <Grid item className={classes.titleWrapper}>
-        <Title title={title} />
-        <SubTitle subTitle={subTitle} classes={classes} />
+      <Grid item className={classes.titleWrapperOuter} xs={12} sm={6}>
+        <Grid container className={classes.titleWrapper}>
+          <Title title={title} />
+          <SubTitle subTitle={subTitle} classes={classes} />
+        </Grid>
       </Grid>
-      <Grid item className={"input_page"}>
-        <Grid container direction="column">
+      <Grid item xs={12} sm={6}>
+        <Grid container direction="column" className={classes.listWrapper}>
           <TimeList
             selectedStartTime={props.selectedStartTime}
             handleSelectedStartTimeChange={props.handleSelectedStartTimeChange}

@@ -27,7 +27,9 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.textField.button.active,
   },
   list: {
-    padding: "4% 15% 2%",
+    padding: "4% 0 2%",
+    width: "252px",
+    margin: "0",
   },
 }));
 
@@ -41,7 +43,7 @@ function List(props) {
       justify="center"
       alignItems="center"
       className={classes.list}
-      id={"no_neg_margin"}
+      // id={"no_neg_margin"}
     >
       {props.exercises.map((exercise, index) => {
         return (

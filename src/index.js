@@ -3,6 +3,11 @@ import ReactDOM from "react-dom";
 import App from "./components/App";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
+
+const pageMargin = 6;
+const pageWidth = 700;
+const customBreakpoint = Math.floor(pageWidth * (1 + (2 * pageMargin / 100)));
+
 const theme = createMuiTheme({
   typography: {
     fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
@@ -49,6 +54,13 @@ const theme = createMuiTheme({
       outline: "#3282b8",
     },
   },
+  breakpoints: {
+    pageMargin: pageMargin,
+    pageWidth: pageWidth,
+    values: {
+      sm: customBreakpoint, // should equal App/customBreakpoint
+    }
+  }
 });
 
 ReactDOM.render(

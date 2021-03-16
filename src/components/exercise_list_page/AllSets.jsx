@@ -3,18 +3,28 @@ import Grid from "@material-ui/core/Grid";
 import Set from "./allSets/Set";
 import { makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles({
+const listWrapperWidth = 250;
+
+const useStyles = makeStyles((theme) => ({
   allSets: {
     width: "30%",
     height: "100%",
     borderRadius: "8px",
-    marginLeft: "50px",
+    marginLeft: `${(380 - ((380 + listWrapperWidth) / 2)) / 2}px`,
+    [theme.breakpoints.up("sm")]: {
+      marginLeft: `${
+        (theme.breakpoints.pageWidth / 2 - listWrapperWidth) / 2
+      }px`,
+    },
   },
   container: {
     height: "100%",
-    width: "252px",
+    width: `${(380 + listWrapperWidth) / 2}px`,
+    [theme.breakpoints.up("sm")]: {
+      width: `${listWrapperWidth}px`,
+    },
   },
-});
+}));
 
 function AllSets(props) {
   const classes = useStyles();
