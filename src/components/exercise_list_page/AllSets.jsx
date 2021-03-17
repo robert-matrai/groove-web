@@ -7,13 +7,12 @@ const listWrapperWidth = 250;
 
 const useStyles = makeStyles((theme) => ({
   allSets: {
-    width: "30%",
     height: "100%",
     borderRadius: "8px",
-    marginLeft: `${(380 - ((380 + listWrapperWidth) / 2)) / 2}px`,
+    margin: `0 ${(380 - ((380 + listWrapperWidth) / 2)) / 2}px`,
     [theme.breakpoints.up("sm")]: {
-      marginLeft: `${
-        (theme.breakpoints.pageWidth / 2 - listWrapperWidth) / 2
+      margin: `0 ${
+        (theme.breakpoints.pageWidth / 2 - listWrapperWidth + 30) / 2 
       }px`,
     },
   },

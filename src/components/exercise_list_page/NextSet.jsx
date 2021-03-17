@@ -6,7 +6,7 @@ import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   nextSet: {
-    width: "380px",
+    width: "100%",
     height: "100%",
     border: "0.1rem solid",
     borderColor: theme.palette.textField.outline,

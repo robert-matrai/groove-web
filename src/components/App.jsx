@@ -10,7 +10,9 @@ import { createBrowserHistory } from "history";
 
 const useStyles = makeStyles((theme) => ({
   page: {
-    margin: `0 ${theme.breakpoints.pageMargin}%`,
+    // margin: `0 ${theme.breakpoints.pageMargin}%`,
+    margin: "0 auto",
+    width: "380px",
     [theme.breakpoints.up("sm")]: {
       width: `${theme.breakpoints.pageWidth}px`,
       margin: "0 auto",

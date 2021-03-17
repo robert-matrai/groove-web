@@ -6,12 +6,12 @@ import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   titleWrapper: {
-    width: "50%",
+    width: "350px",
     height: "100%",
-    padding: "1% 0 5%",
+    padding: "10px 0 40px",
   },
   subTitle: {
-    paddingLeft: "1%",
+    paddingLeft: "2px",
   },
   button: {
     "&:hover": {
@@ -26,12 +26,13 @@ const useStyles = makeStyles((theme) => ({
     textDecorationLine: "none",
   },
   finish: {
+    width: "100%",
     padding: "20px 0 100px",
     color: theme.palette.text.primary,
   },
 }));
 
-const title = "Congratulations!";
+const title = "Congrats!";
 const subTitle =
   "Workout completed successfully";
 
@@ -46,7 +47,7 @@ export default function Finish() {
         alignItems={"flex-start"}
       >
         <Grid item className={classes.titleWrapper}>
-          <Title title={title} />
+          <Title title={title}/>
           <SubTitle subTitle={subTitle} classes={classes} />
         </Grid>
       </Grid>

@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
   container: {
     height: "100%",
+    width: "380px",
   },
 }));
 
