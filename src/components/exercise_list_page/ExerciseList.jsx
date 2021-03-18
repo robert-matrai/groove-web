@@ -49,6 +49,7 @@ function ExerciseList(props) {
             numOfSets={props.numOfSets}
             selectedInterval={props.selectedInterval}
             enforceRerender={() => setEnforceRerender(!enforceRerender)}
+            notificationsAllowed={props.notificationsAllowed}
           />
         </Grid>
       </Grid>

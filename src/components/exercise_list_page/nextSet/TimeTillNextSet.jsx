@@ -3,7 +3,7 @@ import Grid from "@material-ui/core/Grid";
 import { Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
 import { useHistory } from 'react-router-dom';
-// import addNotification from 'react-push-notification';
+import CustomNotification from "../CustomNotification";
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
@@ -89,13 +89,21 @@ function TimeTillNextSet(props) {
   async function showAlert(currentSetNum) {
     try {
       await setTimeout(() => {
-        alert(props.allSets[currentSetNum][2]);
-        // addNotification({title: props.allSets[currentSetNum][2], native: true});
+        showNotification(props.allSets[currentSetNum][2]);
         shouldAlert = true;
       }, 40);
     } catch (err) {
       console.log(err);
     }
+  }
+
+  function showNotification(message) {
+    const params = {
+      title: message,
+      body: `Set ${(parseInt(props.currentSetNum) + 1)}/${props.numOfSets}`,
+      tag: currentSet,
+    }
+    props.notificationsAllowed ? CustomNotification(params) : alert(message);
   }
 
   return (

@@ -20,7 +20,7 @@ export default function SubTitle(props) {
       className={props.classes.subTitle}
     >
       <Typography
-        variant="h7"
+        // variant="h7"
         gutterBottom
         className={classes.subTitle}
       >

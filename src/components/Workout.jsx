@@ -16,6 +16,9 @@ const useStyles = makeStyles((theme) => ({
 function Workout() {
   const classes = useStyles();
 
+  // ***** NOTIFICATIONS *****
+  const [notificationsAllowed, setNotificationsAllowed] = useState(false);
+
   // ***** PAGE NAVIGATION *****
   const [whatToShow, setWhatToShow] = useState("Exercises");
 
@@ -33,6 +36,9 @@ function Workout() {
         }),
       };
       setSelectedStartTime(start.hours + ":" + start.minutes);
+    }
+    if (toPage === "ExerciseList") {
+      setNotificationsAllowed(Notification.permission === "granted" ? true : false);
     }
     setWhatToShow(toPage);
   }
@@ -184,6 +190,7 @@ function Workout() {
             allSets={allSets}
             numOfSets={exercises.length * selectedRounds}
             selectedInterval={selectedInterval}
+            notificationsAllowed={notificationsAllowed}
           />
         )}
       </Grid>

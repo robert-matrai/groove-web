@@ -50,6 +50,7 @@ function NextSet(props) {
             currentSetNum={currentSetNum}
             selectedInterval={props.selectedInterval}
             enforceRerender={props.enforceRerender}
+            notificationsAllowed={props.notificationsAllowed}
           />
           <Details
             numOfSets={props.numOfSets}
