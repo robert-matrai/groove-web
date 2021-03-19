@@ -10,7 +10,6 @@ import { createBrowserHistory } from "history";
 
 const useStyles = makeStyles((theme) => ({
   page: {
-    // margin: `0 ${theme.breakpoints.pageMargin}%`,
     margin: "0 auto",
     width: "380px",
     [theme.breakpoints.up("sm")]: {
@@ -26,7 +25,7 @@ function App(props) {
   return (
     <>
       <div className={classes.page}>
-        <Router history={history} basename={`${process.env.PUBLIC_URL}/`}>
+        <Router history={history}>
           <Header />
           <Switch>
             <Route path="/" exact component={Home} />
