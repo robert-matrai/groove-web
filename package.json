@@ -1,7 +1,7 @@
 {
   "name": "groove-web",
   "version": "0.1.0",
-  "homepage": "https://robert-matrai.github.io/groove",
+  "homepage": "https://robert-matrai.github.io/groove-web",
   "private": true,
   "dependencies": {
     "@date-io/date-fns": "^1.3.13",
