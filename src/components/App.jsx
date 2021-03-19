@@ -26,7 +26,7 @@ function App(props) {
   return (
     <>
       <div className={classes.page}>
-        <Router history={history}  basename={`${process.env.PUBLIC_URL}/`}>
+        <Router history={history} basename={`${process.env.PUBLIC_URL}/`}>
           <Header />
           <Switch>
             <Route path="/" exact component={Home} />
