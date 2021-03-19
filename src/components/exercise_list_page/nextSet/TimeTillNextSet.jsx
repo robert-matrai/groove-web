@@ -52,7 +52,7 @@ function TimeTillNextSet(props) {
       // if less than interval until next hour
       60 - now.minutes < props.selectedInterval && currentSet.hours > now.hours
         ? currentSet.minutes + (59 - now.minutes)
-        : // else if set.minutes < now.minutes (implying it's the next hour)
+        : // else if set.minutes <= now.minutes (implying it's the next hour)
         currentSet.minutes <= now.minutes
         ? 60 - now.minutes - 1 + currentSet.minutes
         : currentSet.minutes - now.minutes - 1,
@@ -74,7 +74,6 @@ function TimeTillNextSet(props) {
       //alert
       showAlert(props.currentSetNum);
       if ((parseInt(props.currentSetNum) + 1) === parseInt(props.numOfSets)) {
-        //showFinishPage();
         history.push('/finish')
       } else {
         // higher level rerender by state change callback

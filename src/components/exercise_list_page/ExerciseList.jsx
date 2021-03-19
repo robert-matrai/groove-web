@@ -39,7 +39,6 @@ function ExerciseList(props) {
       direction="row"
       justify={"flex-start"}
       alignItems={"center"}
-      // className={"full_height"}
       className={classes.exerciseList}
     >
       <Grid item xs={12} sm={6} className={classes.wrapper}>

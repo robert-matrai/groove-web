@@ -1,6 +1,7 @@
 {
   "name": "groove-web",
   "version": "0.1.0",
+  "homepage": "https://robert-matrai.github.io/groove",
   "private": true,
   "dependencies": {
     "@date-io/date-fns": "^1.3.13",
@@ -12,6 +13,7 @@
     "@testing-library/user-event": "^12.6.2",
     "axios": "^0.21.1",
     "date-fns": "^2.16.1",
+    "gh-pages": "^3.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-push-notification": "^1.3.0",
@@ -23,6 +25,8 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
