@@ -45,10 +45,10 @@ function Workout() {
 
   // ***** EXERCISE PAGE *****
   const [exercises, setExercises] = useState([
-    "Swing",
-    "Snatch",
-    "Press",
-    "Getup",
+    "Push-up",
+    "Squat",
+    "Pull-up",
+    "Leg raise",
   ]);
 
   function handleAddNewExercise(newExercise) {

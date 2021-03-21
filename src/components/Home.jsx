@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
 
 const title = "Welcome to Groove";
 const subTitle =
-  "For optimal experience, open this app in a separate window and do not minimize it";
+  "Schedule desktop notifications for the individual sets of your interval workout";
 
 export default function Home() {
   const classes = useStyles();
