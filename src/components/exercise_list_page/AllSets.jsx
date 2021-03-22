@@ -3,16 +3,16 @@ import Grid from "@material-ui/core/Grid";
 import Set from "./allSets/Set";
 import { makeStyles } from "@material-ui/core";
 
-const listWrapperWidth = 250;
+const listWrapperWidth = 263;
 
 const useStyles = makeStyles((theme) => ({
   allSets: {
     height: "100%",
     borderRadius: "8px",
-    margin: `0 ${(380 - ((380 + listWrapperWidth) / 2)) / 2}px`,
+    margin: `0 ${(380 - (380 + listWrapperWidth) / 2) / 2}px`,
     [theme.breakpoints.up("sm")]: {
       margin: `0 ${
-        (theme.breakpoints.pageWidth / 2 - listWrapperWidth + 30) / 2 
+        (theme.breakpoints.pageWidth / 2 - listWrapperWidth + 30) / 2
       }px`,
     },
   },
@@ -45,7 +45,14 @@ function AllSets(props) {
                   set[1] > props.selectedInterval - (60 - now.minutes)) ||
                 set[0] > now.hours + 1)) ||
               set[3] > now.date ? (
-              <Set key={index} set={set} index={index} />
+              <Set
+                key={index}
+                set={set}
+                index={index}
+                displayMargin={
+                  index === props.allSets.length - 1 ? false : true
+                }
+              />
             ) : null;
           })}
         </div>

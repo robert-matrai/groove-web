@@ -30,7 +30,11 @@ const useStyles = makeStyles((theme) => ({
 function Set(props) {
   const classes = useStyles();
   return (
-    <Grid item id={"set"} className={classes.set}>
+    <Grid
+      item
+      className={classes.set}
+      style={props.displayMargin ? null : { marginBottom: "0" }}
+    >
       <Grid
         container
         direction="row"

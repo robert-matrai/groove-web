@@ -4,7 +4,7 @@ import AllSets from "./AllSets";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core";
 
-const customHeight = 400;
+const customHeight = 405;
 
 const useStyles = makeStyles((theme) => ({
   exerciseList: {
@@ -15,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   wrapper: {
-    //height: "80%",
     marginBottom: "30px",
     height: `${customHeight * 0.8}px`,
     [theme.breakpoints.up("sm")]: {
