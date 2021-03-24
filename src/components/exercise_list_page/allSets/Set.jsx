@@ -55,8 +55,8 @@ function Set(props) {
         </Grid>
         <Grid item className={classes.setName}>
           <Typography>
-            {props.set[2].length > 14
-              ? props.set[2].substring(0, 14)
+            {props.set[2].length > 19
+              ? `${props.set[2].substring(0, 19)}...`
               : props.set[2]}
           </Typography>
         </Grid>

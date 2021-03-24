@@ -35,7 +35,11 @@ function Details(props) {
         />
         <Detail
           title={"Exercise"}
-          content={props.allSets[props.currentSetNum][2]}
+          content={
+            props.allSets[props.currentSetNum][2].length <= 6
+              ? props.allSets[props.currentSetNum][2]
+              : `${props.allSets[props.currentSetNum][2].substring(0, 6)}...`
+          }
         />
         <Detail
           title={"Set"}

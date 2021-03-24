@@ -20,10 +20,10 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     color: theme.palette.text.secondary,
-    fontSize: "1.2rem",
+    fontSize: "1rem",
   },
   content: {
-    fontSize: "1.7rem",
+    fontSize: "1.5rem",
   }
 }));
 
